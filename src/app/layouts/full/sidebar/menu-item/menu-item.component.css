@@ -1,0 +1,31 @@
+.menu-button {
+    transition: 300ms ease-in-out;
+    transform: rotate(0deg);
+  }
+
+  .menu-button.rotated {
+    transform: rotate(180deg);
+  }
+
+  .submenu {
+    overflow-y: hidden;
+    transition: transform 300ms ease;
+    transform: scaleY(0);
+    transform-origin: top;
+    padding-left: 30px;
+  }
+  .submenu.expanded {
+    transform: scaleY(1);
+  }
+
+  .mat-expansion-panel-header.mat-expanded:focus , .mat-expansion-panel-header.mat-expanded:hover , .mat-expansion-panel-header.mat-expanded{
+    background-color: #633 !important;
+  }
+
+  #snav .mat-list-item.selected > .mat-list-item-content > a{
+    background-color: unset !important;
+  }
+
+  .mat-list-item.selected{
+    background-color: #994;
+  }

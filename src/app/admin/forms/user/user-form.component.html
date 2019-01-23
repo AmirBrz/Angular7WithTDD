@@ -1,0 +1,28 @@
+<mat-card>
+  <form (ngSubmit)="manageUsreform.form.valid && updateInsert()" #manageUsreform="ngForm" novalidate>
+    <mat-card-content fxLayout="column" fxLayoutWrap fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="5px"
+      fxLayoutGap.xs="0" fxFlex.gt-sm="100%">
+      <mat-card-subtitle fxFlex="90%">Manager</mat-card-subtitle>
+      <mat-panel-description fxFlex="85%" class="p-b-20">
+        <mat-icon>account_circle</mat-icon>
+        fill required data
+      </mat-panel-description>
+      <mat-form-field fxFlex="80%" fxLayoutGap="20%">
+        <input matInput required [(ngModel)]="currentUser.name" name="name" #name="ngModel" placeholder="name"
+          autocomplete="off">
+      </mat-form-field>
+      <mat-form-field fxFlex="90%" fxLayoutGap="5%">
+        <input matInput type="text" required [(ngModel)]="currentUser.surename" name="surename" #sure="ngModel"
+          placeholder="surenaem" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field fxFlex="90%" fxLayoutGap="15%">
+        <input matInput type="text" NumberOnly maxlength="2" [(ngModel)]="currentUser.age" name="age" #age="ngModel"
+          placeholder="Age" autocomplete="off">
+      </mat-form-field>
+      <div color="primary" fxFlex="100%" fxLayoutGap="10px">
+        <button mat-button mat-raised-button color="primary" type="submit"> submit </button>
+        <button mat-button mat-raised-button color="warn" type="button" class="pull-right" (click)="reset()">cancel</button>
+      </div>
+    </mat-card-content>
+  </form>
+</mat-card>

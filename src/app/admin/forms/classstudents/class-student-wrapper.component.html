@@ -1,0 +1,9 @@
+<mat-card fxFlex="100%" *ngIf="showStudentClass" class="bg-light-info">
+    <mat-toolbar class="mat-toolbar-small" color="primary">{{selectedClassName}}
+        <mat-icon class="text-right" style="flex: auto" (click)="showStudentClass = false">close</mat-icon>
+    </mat-toolbar>
+    <mat-card-content>
+        <app-class-student-form [studentList]="studentList" (sendResult)="studentSureNameIsValid($event)"></app-class-student-form>
+        <app-mat-table [dataSource]="classStudentList" (runAction)="fireAction($event)" [columns]="columns"></app-mat-table>
+    </mat-card-content>
+</mat-card>

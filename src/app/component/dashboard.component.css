@@ -1,0 +1,9 @@
+.home-card{
+    max-width: 290px;
+    width: 290px;
+    display: inline-block !important;
+}
+
+.home-header-image {
+    background-size: cover;
+  }

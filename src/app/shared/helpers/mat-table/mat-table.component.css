@@ -1,0 +1,41 @@
+.mat-header-row{
+    background-color: rgb(66, 87, 98);
+    color: rgb(210, 210, 210);
+    font-weight: 500;
+    min-height: 40px;
+    border-bottom: 1px dotted rgb(37, 59, 74);
+}
+
+.mat-input-element {
+    border: 1px solid #e1e9f9;
+    padding: 6px 12px;
+    height: 38px;
+  }
+  
+  .mat-row:nth-child(even) {
+    background-color: #f5f9fc;
+  }
+  
+  mat-row:nth-child(odd) {
+    background-color: #e8f2fc;
+  }
+
+  .cell-text-center{
+    text-align: center;
+    display: block;
+    padding: 10px 0;
+}
+
+.spinner-container {
+    height: 360px;
+    width: 390px;
+    position: fixed;
+}
+
+.spinner-container mat-spinner {
+    margin: 130px auto 0 auto;
+}
+
+.highlight {
+    background-color: #f7ffbb !important;
+}

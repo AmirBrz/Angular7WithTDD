@@ -1,0 +1,17 @@
+<div fxLayout="row wrap" fxLayout.lt-sm="column"  fxLayoutGap="1px" fxLayoutAlign="flex-start" fxFlex.gt-sm="100%">
+    <mat-card fxFlex="0 1 35%" fxFlex.lt-md="0 1 90%" fxFlex.lt-sm="95%">
+        <mat-card-content>
+            <mat-card-title>{{title}}</mat-card-title>
+            <app-classroom-form [currentClassRoom]="currentClassRoom" [teacherList]="teacherList" (sendResult)="changeModel($event)"></app-classroom-form>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card fxFlex="0 1 60%" fxFlex.lt-md="0 1 90%" fxFlex.lt-sm="0 1 95%">
+        <mat-card-content>
+            <mat-card-title>{{listtitle}}</mat-card-title>
+            <app-mat-table [dataSource]="classRoomList" (runAction)="fireAction($event)" [columns]="columns"></app-mat-table>
+            <app-class-student-wrapper [currentClass]="selectedClass"></app-class-student-wrapper>
+        </mat-card-content>
+    </mat-card>
+    
+</div>

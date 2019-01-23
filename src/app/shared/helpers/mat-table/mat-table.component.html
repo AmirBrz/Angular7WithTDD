@@ -1,0 +1,57 @@
+<div class="spinner-container" *ngIf="myDataSource.loading$ | async">
+  <mat-spinner></mat-spinner>
+</div>
+<mat-table class="mat-elevation-z8" [dataSource]="myDataSource">
+
+  <ng-container *ngFor="let column of tableColumns">
+    <div *ngIf="!column.isAction" [matColumnDef]="column.columnDef">
+      <mat-header-cell *matHeaderCellDef [attr.fxFlex]="column.cellSize" [class]="column.className + '  mat-column-position'">{{
+        column.header }}</mat-header-cell>
+      <ng-container *ngIf="!column.editable else editTemplate" [matColumnDef]="column.columnDef">
+        <mat-cell [attr.fxFlex]="column.cellSize" [class]="column.className + '  mat-column-position'"
+          *matCellDef="let row" [innerHtml]="column.cell(row) | showData:column.pipeName | safehtml"></mat-cell>
+      </ng-container>
+      <ng-template #editTemplate [matColumnDef]="column.columnDef">
+        <mat-cell [attr.fxFlex]="column.cellSize" [class]="column.className + '  mat-column-position'"
+          *matCellDef="let row">
+          <ng-container #place [upId]="row.id" [value]="column.cell(row)" [colName]="column.columnDef">
+            <span color="primary" [attr.fxFlex]="column.cellSize">{{column.cell(row)}}</span>
+          </ng-container>
+        </mat-cell>
+      </ng-template>
+    </div>
+    <ng-container *ngIf="column.isAction" [matColumnDef]="column.columnDef">
+      <mat-header-cell *matHeaderCellDef [attr.fxFlex]="column.cellSize" [class]="column.className + '  mat-column-position'">{{
+        column.header }}</mat-header-cell>
+      <mat-cell *matCellDef="let row" [class]="column.className + ' p-r-10 cell-sticky'" (click)="$event.stopPropagation()">
+        <button [matMenuTriggerFor]="menu" class="btn-custom text-megna" style="flex:auto;">
+          <mat-icon class="font-20 font-bold">keyboard_arrow_down</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <ng-container *ngFor="let action of column.actionList">
+            <button mat-menu-item *ngIf="action.isVisible" (click)="$event.stopPropagation();clickAction(action.field(row) , action.actionType)">
+              <mat-icon>{{action.icon}}</mat-icon> {{action.label}}
+            </button>
+          </ng-container>
+        </mat-menu>
+      </mat-cell>
+    </ng-container>
+  </ng-container>
+  <mat-header-row fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="1px" fxLayoutAlign="flex-start" fxFlex.gt-sm="100%" *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="1px" fxLayoutAlign="flex-start" fxFlex.gt-sm="100%"
+    class="pointer" *matRowDef="let row; columns: displayedColumns" (click)="onRowClicked(row)" [ngClass]="{'highlight': checkCondition(row)}"></mat-row>
+</mat-table>
+
+<ng-template #updatePanel let-rowid="rowId" let-rowValue="rowValue" let-colName="colName">
+  <mat-form-field style="width:50%">
+    <input matInput type="text" [value]="rowValue" autocomplete="off" #newValue>
+  </mat-form-field>
+  <div class="text-right d-flex">
+    <button md-button class="btn-small btn-custom">
+      <mat-icon color="primary" class="font-18 pointer" (click)="update(rowid ,newValue.value , colName) ">edit_attributes</mat-icon>
+    </button>
+    <button md-button class="btn-small btn-custom">
+      <mat-icon color="warn" class="font-18 pointer" (click)="removeAllEditors()">cancel</mat-icon>
+    </button>
+  </div>
+</ng-template>

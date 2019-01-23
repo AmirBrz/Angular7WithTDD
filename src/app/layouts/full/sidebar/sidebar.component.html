@@ -1,0 +1,16 @@
+<div class="user-profile" style="background: url(assets/images/background/user-info.jpg) 100% 100% no-repeat;">
+    <div class="profile-img">
+        <img src="assets/images/users/profile.png" alt="user"> </div>
+    <div class="profile-text">
+        <a [matMenuTriggerFor]="sdprofile" class=""> Current User
+            <i class="ti-angle-down font-12 m-l-5"></i>
+        </a>
+    </div>
+    <mat-menu #sdprofile="matMenu" class="mymegamenu">
+        <a mat-menu-item routerLink="/dashboard">
+            <mat-icon>account_box</mat-icon> Dashboard</a>
+        <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon> logout</button>
+    </mat-menu>
+</div>
+<app-menu-item></app-menu-item>

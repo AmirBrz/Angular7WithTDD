@@ -1,0 +1,11 @@
+<mat-card class="home-card" *ngFor="let item of menuitems">
+    <mat-card-header>
+        <mat-icon mat-card-avatar class="example-header-image">{{item.icon}}</mat-icon>
+        <mat-card-title class="font-14 pointer" (click)="gotoform(item.link)">{{item.name}}</mat-card-title>        
+    </mat-card-header>
+    <img mat-card-image src="assets/images/background/chartpaper.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-actions class="p-0">
+        <button mat-button mat-raised-button style="width: 100%;" class="bg-success pointer" (click)="gotoform(item.link)">
+            {{ ' go to ' + item.name}} </button>
+    </mat-card-actions>
+</mat-card>

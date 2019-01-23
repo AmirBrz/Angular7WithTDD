@@ -1,0 +1,10 @@
+<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5">
+    <img src="assets/images/users/1.png" alt="user" class="profile-pic"> </button>
+<mat-menu #profile="matMenu" class="mymegamenu">
+    <a mat-menu-item routerLink="/dashboard">
+        <mat-icon>account_box</mat-icon> Dashboard
+    </a>
+    <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon> Logout
+    </button>
+</mat-menu>

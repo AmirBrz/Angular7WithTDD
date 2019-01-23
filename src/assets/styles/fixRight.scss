@@ -1,0 +1,77 @@
+.user-profile {
+    background-size: 100% 100% !important;
+    .profile-img {
+        margin-right: 30px !important;
+    }
+}
+
+#snav{
+    .mat-list-item {
+           
+        a{
+            mat-icon:not(.dd-icon){
+                margin-left: 8px !important;
+            }
+            .dd-icon{
+                margin: 5px 5px 0  5px !important;
+            }
+        }
+    }
+    .sub-item{
+         a{
+          padding-right: 28px !important;
+        }
+    }
+}
+
+.mat-snack-bar-container{
+    direction:  rtl;
+    height: 65px;
+    background-color: #f8004a;
+  }
+  
+  .mat-simple-snackbar{
+    font-size: 17px;
+    text-align:  center !important;
+  }
+
+  .snack_success{
+    background-color: #039903;
+  }
+  .snack_warn{
+    background-color: #f87000;
+  }
+  .snack_error{
+    background-color: #f8004a;
+  }
+
+//   ------ responsive -----------
+
+@media(min-width:768px) {
+    .navbar-header {
+        width: auto !important;
+    }    
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline{
+    background-color: rgba(78, 159, 197, 0.45);
+}
+
+.pull-left{
+    float: left !important;
+}
+
+.pull-right{
+    float: right !important;
+}
+
+.report-header-image {
+    background-size: 70px  !important;
+    width: 70px !important;
+    height: 70px  !important;
+    border-radius: 20% !important;
+  }
+
+  .pointer{
+      cursor: pointer;
+  }

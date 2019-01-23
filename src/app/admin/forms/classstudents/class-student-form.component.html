@@ -1,0 +1,17 @@
+<form (ngSubmit)="myform.form.valid && updateInsert()" #myform="ngForm" novalidate 
+  fxLayout.xs="row wrap" fxLayoutAlign="flex-start" class="">
+  <mat-form-field fxFlex="0 1 65%" fxLayoutGap="2px">
+    <mat-select placeholder="Select student" name="roles" [(ngModel)]="selectedStudentId">
+      <mat-option *ngFor="let student of studentList" [value]="student.id">{{student.name + ' ' + student.surename}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div color="primary" class="text-right" fxFlex="0 1 35%" fxLayoutGap="2px">
+    <button mat-button mat-mini-fab color="primary" type="submit">
+      <mat-icon aria-label="Add user to class">add</mat-icon>
+    </button>
+    <button mat-button mat-mini-fab color="warn" type="button" (click)="reset()">
+      <mat-icon aria-label="cancel">cancel</mat-icon>
+    </button>
+  </div>
+
+</form>

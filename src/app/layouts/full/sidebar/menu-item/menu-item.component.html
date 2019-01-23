@@ -1,0 +1,38 @@
+<mat-nav-list appAccordion>
+    <ng-container *ngFor="let menuitem of menuitems">
+        <ng-container *ngIf="!menuitem.childs else accordion">
+            <ng-container *ngTemplateOutlet="menuItem;context:{ templteMenuItems:menuitem }">
+            </ng-container>
+        </ng-container>
+        <ng-template #accordion>
+            <mat-accordion MatAccordionDisplayMode="flat">
+                <mat-expansion-panel [expanded]="selectedMenuStep === menuitem.id" (opened)="selectedMenuStep = menuitem.id"
+                    hideToggle="true" class="bg-lighter-dark text-light font-14">
+                    <mat-expansion-panel-header class="bg-light-dark">
+                        <mat-panel-title class="text-light" style="flex-grow: 0;">
+                            <mat-icon>{{ menuitem.icon }}</mat-icon>
+                        </mat-panel-title>
+                        <mat-panel-description class="text-light font-16">
+                            {{ menuitem.name }}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <mat-divider></mat-divider>
+                    <ng-container *ngFor="let child of menuitem.childs">
+                        <ng-container *ngTemplateOutlet="menuItem;context:{ templteMenuItems:child }">
+                        </ng-container>
+                    </ng-container>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </ng-template>
+    </ng-container>
+</mat-nav-list>
+
+<ng-template #menuItem let-menuItem="templteMenuItems">
+    <mat-list-item appAccordionLink routerLinkActive="selected">
+        <a appAccordionToggle (click)="gotoform(menuItem.link)">
+            <mat-icon>{{ menuItem.icon }}</mat-icon>
+            <span class="text-light">{{ menuItem.name }}</span>
+            <span fxFlex></span>
+        </a>
+    </mat-list-item>
+</ng-template>

@@ -1,0 +1,14 @@
+<div fxLayout="row wrap" fxLayout.lt-sm="column"  fxLayoutGap="1px" fxLayoutAlign="flex-start" fxFlex.gt-sm="100%">
+    <mat-card fxFlex="0 1 35%" fxFlex.lt-md="0 1 90%" fxFlex.lt-sm="95%">
+        <mat-card-content>
+            <mat-card-title>{{title}}</mat-card-title>
+            <app-user-form [currentUser]="currentUser" (sendResult)="changeModel($event)"></app-user-form>
+        </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="0 1 60%" fxFlex.lt-md="0 1 90%" fxFlex.lt-sm="0 1 95%">
+        <mat-card-content>
+            <mat-card-title>{{listtitle}}</mat-card-title>
+            <app-mat-table [dataSource]="userList" [columns]="columns" (runAction)="fireAction($event)"></app-mat-table>
+        </mat-card-content>
+    </mat-card>
+</div>
