@@ -1,8 +1,4 @@
-<div class="spinner-container" *ngIf="myDataSource.loading$ | async">
-  <mat-spinner></mat-spinner>
-</div>
 <mat-table class="mat-elevation-z8" [dataSource]="myDataSource">
-
   <ng-container *ngFor="let column of tableColumns">
     <div *ngIf="!column.isAction" [matColumnDef]="column.columnDef">
       <mat-header-cell *matHeaderCellDef [attr.fxFlex]="column.cellSize" [class]="column.className + '  mat-column-position'">{{
