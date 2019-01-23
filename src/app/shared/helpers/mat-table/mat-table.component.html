@@ -43,11 +43,11 @@
     <input matInput type="text" [value]="rowValue" autocomplete="off" #newValue>
   </mat-form-field>
   <div class="text-right d-flex">
-    <button md-button class="btn-small btn-custom">
-      <mat-icon color="primary" class="font-18 pointer" (click)="update(rowid ,newValue.value , colName) ">edit_attributes</mat-icon>
+    <button md-button class="btn-small btn-custom" (click)="update(rowid ,newValue.value , colName)">
+      <mat-icon color="primary" class="font-18 pointer" >edit_attributes</mat-icon>
     </button>
-    <button md-button class="btn-small btn-custom">
-      <mat-icon color="warn" class="font-18 pointer" (click)="removeAllEditors()">cancel</mat-icon>
+    <button md-button class="btn-small btn-custom" (click)="removeAllEditors()">
+      <mat-icon color="warn" class="font-18 pointer">cancel</mat-icon>
     </button>
   </div>
 </ng-template>
